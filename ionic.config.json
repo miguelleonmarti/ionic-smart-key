@@ -1,5 +1,7 @@
 {
   "name": "ionic-smart-key",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

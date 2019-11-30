@@ -1,14 +1,27 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">Logout</ion-button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="bleCommunication('54:09:55:A3:58:84')">Map</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-card class="ion-padding" style="border: #3880ff 2px solid;" *ngFor="let door of doorList">
+    <ion-card-header>
+      <ion-card-title style="font-size: 20px;">{{ door.name }}</ion-card-title>
+      <ion-card-subtitle style="margin-top: 10px; font-size: 16px;">Latitude: {{ door.latitude }}</ion-card-subtitle>
+      <ion-card-subtitle style="margin-top: 10px; font-size: 16px;">Longitude: {{ door.longitude }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button *ngIf="door.open" (click)="setDoorState(door.id, false)" expand="block" color="success" style="text-align: center; font-size: 20px;">OPEN</ion-button>
+      <ion-button *ngIf="!door.open" (click)="setDoorState(door.id, true)" expand="block" color="danger" style="text-align: center; font-size: 20px;">CLOSED</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
