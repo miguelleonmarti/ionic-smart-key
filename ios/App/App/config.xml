@@ -5,5 +5,10 @@
   <feature name="BluetoothSerial">
     <param name="ios-package" value="MEGBluetoothSerial" onload="true"/>
   </feature>
+
+  <feature name="Geolocation">
+    <param name="ios-package" value="CDVLocation"/>
+  </feature>
+
   
 </widget>
